@@ -2,32 +2,28 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AI_PROMPT, SelectBudgetOptions, SelectTravelsList } from "@/constants/options";
 import { chatSession } from "@/service/AIModal";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-} from "@/components/ui/dialog"
-import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from 'axios';
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@/service/firebase.config";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import Dialog from "@/components/custom/dialog";
 
 const CreateTrip = () => {
+
+    const dialogRef = useRef(null);
+
+    const openDialog = () => dialogRef.current.showModal();
+    const closeDialog = () => dialogRef.current.close();
 
     // State varible to store the places for user
     const [places, setPlaces] = useState([]);
 
     // State varible for storing query for firebase
     const [query, setQuery] = useState('');
-
-    // State varible for controling popover visibility
-    const [openDialog, setOpenDialog] = useState(false)
 
     // State varible used for storing the user specification for the trip
     const [formData, setFormData] = useState([])
@@ -77,7 +73,7 @@ const CreateTrip = () => {
     const onGeneratetrip = async () => {
         const user = localStorage.getItem('User')
         if (!user) {
-            setOpenDialog(true);
+            openDialog()
             return;
         }
         else {
@@ -127,7 +123,7 @@ const CreateTrip = () => {
                 }
             }).then((res) => {
                 localStorage.setItem('User', JSON.stringify(res.data))
-                setOpenDialog(false)
+                closeDialog()
                 onGeneratetrip()
             }).catch((err) => {
                 console.log(err)
@@ -135,8 +131,8 @@ const CreateTrip = () => {
     }
 
     return (
-        <div className="sm:px-10 md:px-32 lg:px-56 xl:px-50 px-5 my-10">
-            <h2 className="font-bold text-2xl">Tell us your travel preferences 🏕️🌴</h2>
+        <div className="sm:px-10 md:px-32 lg:px-56 xl:px-50 px-5 my-10 flex-1">
+            <h2 className="font-bold text-2xl" onClick={() => { openDialog() }}>Tell us your travel preferences 🏕️🌴</h2>
             <p className="mt-3 text-gray-500 text-lg">Just provide some basic information, and our trip planner will generate a customized itinery based on your preferences.</p>
             <div className="mt-10 flex flex-col gap-9">
                 <div>
@@ -204,20 +200,7 @@ const CreateTrip = () => {
                     }
                 </Button>
             </div>
-            <Dialog open={openDialog} >
-                <DialogContent >
-                    <DialogHeader >
-                        <DialogDescription >
-                            <img src="./logo.svg" />
-                            <h2 className="font-bold text-lg mt-7">Sign in with Google</h2>
-                            <p>Sign in to the App with Google Authentication securely</p>
-                            <Button onClick={login} className='w-full mt-5 flex gap-4 items-center'>
-                                <FcGoogle className="w-7 h-7" />Sign in With Google
-                            </Button>
-                        </DialogDescription>
-                    </DialogHeader>
-                </DialogContent>
-            </Dialog>
+            <Dialog dialogRef={dialogRef} openDialog={openDialog} closeDialog={closeDialog} login={login} />
         </div>
     )
 }

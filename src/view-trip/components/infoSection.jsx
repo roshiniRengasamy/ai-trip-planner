@@ -14,7 +14,6 @@ const InfoSection = ({ trip }) => {
                         <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-600 text-xs md:text-md">🥂 No. of Traveler(s) {trip?.userSelection?.Traveler}</h2>
                     </div>
                 </div>
-                <Button><IoIosSend /></Button>
             </div>
         </div>
     )

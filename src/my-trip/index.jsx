@@ -1,12 +1,12 @@
 import { db } from "@/service/firebase.config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react"
-import { Link, useNavigation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyTrip = () => {
 
     // Hook used for navigation
-    const navigate = useNavigation()
+    const navigate = useNavigate()
 
     // State variable to store the user trips
     const [userTrips, setUserTrip] = useState([])
@@ -32,14 +32,14 @@ const MyTrip = () => {
     }
 
     return (
-        <div className="sm:px-10 md:px-32 lg:px-56 xl:px-50 px-5 my-10">
+        <div className="sm:px-10 md:px-32 lg:px-56 xl:px-50 px-5 my-10 flex-1">
             <h2 className="font-bold text-3xl">My Trips</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-5">
                 {userTrips?.length > 0 ?
-                    <div>
+                    <>
                         {userTrips?.map((trip, index) => (
                             <Link key={index} to={`/view-trip/${trip?.id}`}>
-                                <div className="hover:scale-105 transition-all my-5">
+                                <div className="hover:scale-105 transition-all my-5 ">
                                     <img src={`/placeholder${Math.floor(Math.random() * 5) + 1}.jpg`} className="object-cover rounded-xl h-[150px]" />
                                     <div>
                                         <h2 className="font-bold text-lg">{trip?.userSelection?.Location}</h2>
@@ -48,7 +48,7 @@ const MyTrip = () => {
                                 </div>
                             </Link>
                         ))}
-                    </div>
+                    </>
                     :
                     [1, 2, 3, 4, 5]?.map((item, index) => (
                         <div key={index} className="h-[150px] w-full bg-slate-200 animate-pulse rounded-xl">

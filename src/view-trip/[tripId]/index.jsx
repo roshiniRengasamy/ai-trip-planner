@@ -1,13 +1,15 @@
 import { db } from "@/service/firebase.config"
 import { doc, getDoc } from "firebase/firestore"
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "sonner";
 import InfoSection from "../components/infoSection";
 import Hotel from "../components/hotel";
 import PlacesToVisit from "../components/placesToVisit";
 
 const ViewTrip = () => {
+
+    const navigate = useNavigate()
 
     // Trip Id to retrive the specific plans
     const { tripId } = useParams();
@@ -22,6 +24,11 @@ const ViewTrip = () => {
 
     // Method to retirve the specific trip plan
     const getTripData = async () => {
+        const user = localStorage.getItem('User')
+        if (!user) {
+            navigate('/')
+            return;
+        }
         const docRef = doc(db, 'TripData', tripId)
         const docSnap = await getDoc(docRef)
         if (docSnap.exists()) {
