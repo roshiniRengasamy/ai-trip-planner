@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Header from './components/custom/header'
 import { Toaster } from './components/ui/sonner'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-import ViewTrip from './view-trip/[tripId]'
+import ViewTrip from './view-trip'
 import MyTrip from './my-trip'
 import WithHeader from './components/custom/withHeader'
 

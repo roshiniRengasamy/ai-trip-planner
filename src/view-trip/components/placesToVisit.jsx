@@ -15,7 +15,7 @@ const PlacesToVisit = ({ trip }) => {
                                     {/* <img src="/placeholder.jpg" className="w-[130px] h-[130px] rounded-xl" /> */}
                                     <img src={activity?.place_image_url} className="w-[130px] h-[130px] rounded-xl" />
                                     <div className="justify-center items-center">
-                                        <h2 className="font-bold text-lg">{activity?.place_name}</h2>
+                                        <h2 className="font-bold text-lg text-black">{activity?.place_name}</h2>
                                         <p className="text-sm text-gray-500">{activity?.place_details}</p>
                                         <div className="flex my-2">
                                             <h2 className="p-1 px-3 bg-gray-200 rounded-full text-gray-600 text-xs md:text-md">🕖 {activity?.best_time_to_visit}</h2>

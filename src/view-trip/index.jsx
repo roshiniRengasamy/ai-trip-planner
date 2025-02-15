@@ -3,9 +3,9 @@ import { doc, getDoc } from "firebase/firestore"
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { toast } from "sonner";
-import InfoSection from "../components/infoSection";
-import Hotel from "../components/hotel";
-import PlacesToVisit from "../components/placesToVisit";
+import InfoSection from "./components/infoSection";
+import Hotel from "./components/hotel";
+import PlacesToVisit from "./components/placesToVisit";
 
 const ViewTrip = () => {
 
