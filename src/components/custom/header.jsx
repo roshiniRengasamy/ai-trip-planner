@@ -67,7 +67,7 @@ const Header = () => {
 
                         </div>
                         :
-                        <Button onClick={() => { openDialog() }}>Sign In</Button>
+                        <Button onClick={() => { openDialog() }} className="mr-5" >Sign In</Button>
                 }
                 <Dialog dialogRef={dialogRef} openDialog={openDialog} closeDialog={closeDialog} login={login} />
             </div>
