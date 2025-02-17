@@ -4,9 +4,9 @@ import { Button } from "../ui/button";
 //Home page
 const Hero = () => {
     return (
-        <div className="flex-1 mb-20">
-            <div className="flex flex-col items-center mx-60 gap-9">
-                <h1 className="font-extrabold text-[50px] text-center mt-16">
+        <div className="flex items-center justify-center">
+            <div className="flex flex-col items-center justify-center mx-40 my-20 gap-9">
+                <h1 className="font-extrabold text-[60px] text-center mt-16">
                     <span className="text-[#f56551]">Discover Your Next Adventure with AI: </span>
                     Personalized Itineraries at Your Fingertips
                 </h1>

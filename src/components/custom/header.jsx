@@ -19,7 +19,7 @@ const Header = () => {
     // Get the user details from local storage
     const User = JSON.parse(localStorage.getItem('User'))
 
-    // Method to login using google authentication 
+    // Method to login using google authentication
     const login = useGoogleLogin({
         onSuccess: (codeResp) => getUserProfile(codeResp),
         onError: (error) => console.log(error)
@@ -43,7 +43,7 @@ const Header = () => {
     }
 
     return (
-        <div className="p-3 shadow-sm flex justify-between items-center px-5">
+        <div className="p-3 shadow-sm flex justify-between items-center px-5 ">
             <div className="flex items-center">
                 <img src="/logo.svg" className="w-10 h-10" alt="Logo" />
                 <span className="py-2 px-2 font-bold text-[#f56551] text-xl">Travel Planner</span>

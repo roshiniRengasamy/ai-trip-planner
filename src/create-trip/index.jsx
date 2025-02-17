@@ -131,7 +131,7 @@ const CreateTrip = () => {
     }
 
     return (
-        <div className="sm:px-10 md:px-32 lg:px-56 xl:px-50 px-5 my-10 flex-1">
+        <div className="sm:px-10 md:px-32 lg:px-50 xl:px-50 px-5 my-10 flex-1 ">
             <h2 className="font-bold text-2xl" onClick={() => { openDialog() }}>Tell us your travel preferences 🏕️🌴</h2>
             <p className="mt-3 text-gray-500 text-lg">Just provide some basic information, and our trip planner will generate a customized itinery based on your preferences.</p>
             <div className="mt-10 flex flex-col gap-9">
