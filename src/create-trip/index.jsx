@@ -77,7 +77,11 @@ const CreateTrip = () => {
             return;
         }
         else {
-            if (formData.Days > 5 || !formData?.Location || !formData?.Days || !formData?.Budget || !formData?.Traveler) {
+            if (formData.Days > 5) {
+                toast('Maximum day iternary can be generated is 7')
+                return;
+            }
+            if (!formData?.Location || !formData?.Days || !formData?.Budget || !formData?.Traveler) {
                 toast('Please fill all the fields!')
                 return;
             }
