@@ -6,14 +6,10 @@ import { toast } from "sonner";
 import InfoSection from "./components/infoSection";
 import Hotel from "./components/hotel";
 import PlacesToVisit from "./components/placesToVisit";
-import { useLocation } from "react-router-dom";
 
 const ViewTrip = () => {
 
     const navigate = useNavigate()
-
-    const location = useLocation();
-    const imageIndex = location.state.index || {};
 
     // Trip Id to retrive the specific plans
     const { tripId } = useParams();
@@ -46,7 +42,7 @@ const ViewTrip = () => {
     return (
         <div className="p-10 md:px-20 lg:px-44 xl:px-56">
             {/* Information Section */}
-            <InfoSection trip={trip} imageIndex={imageIndex} />
+            <InfoSection trip={trip} />
             {/* Recommended Hotels */}
             <Hotel trip={trip} />
             {/* Daily Plan */}

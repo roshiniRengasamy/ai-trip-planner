@@ -9,7 +9,7 @@ const Hotel = ({ trip }) => {
                 {trip?.tripData?.hotels?.map((hotel, index) => (
                     <Link key={index} to={'https://www.google.com/maps/search/?api=1&query=' + hotel?.hotel_name + "," + hotel?.hotel_address} target="_blank">
                         <div className="hover:scale-105 transition-all cursor-pointer">
-                            <img src={`/hotel${Math.floor(Math.random() * 9) + 1}.jpg`} className="w-[130px] h-[130px] object-cover rounded-xl text-black" />
+                            <img src={"/noImage.jpg"} alt={"Hotel Image"} className="w-[150px] h-[130px] object-cover rounded-xl text-black" />
                             <div className="my-2 flex flex-col gap-2">
                                 <h2 className="font-medium text-black">{hotel?.hotel_name}</h2>
                                 <h2 className="text-xs text-gray-500">📍 {hotel?.hotel_address}</h2>
