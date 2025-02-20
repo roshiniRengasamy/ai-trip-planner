@@ -8,8 +8,6 @@ const MyTrip = () => {
     // Hook used for navigation
     const navigate = useNavigate()
 
-    const imageIndex = Math.floor(Math.random() * 17) + 1
-
     // State variable to store the user trips
     const [userTrips, setUserTrip] = useState([])
 
@@ -40,16 +38,12 @@ const MyTrip = () => {
                 {userTrips?.length > 0 ?
                     <>
                         {userTrips?.map((trip, index) => (
-                            <Link key={index} to={{ pathname: `/view-trip/1740027335230`, state: { index: imageIndex } }} >
+                            <Link key={index} to={`/view-trip/1740027335230`} >
                                 <div className="hover:scale-105 transition-all my-5 ">
-                                    <img src={`/placeholder${imageIndex}.jpg`} className="object-contain rounded-xl h-[150px]" />
+                                    <img src={`/placeholder${Math.floor(Math.random() * 17) + 1}.jpg`} className="object-contain rounded-xl h-[150px]" />
                                     <div>
                                         <h2 className="font-bold text-lg">{trip?.userSelection?.Location}</h2>
                                         <h2 className="text-sm text-gray-500">{trip?.userSelection?.Days} Day trip with {trip?.userSelection?.Budget} Budget</h2>
-                                    </div>
-                                    <div>
-                                        <h2 className="font-bold text-lg">Paris</h2>
-                                        <h2 className="text-sm text-gray-500">2 Day trip with moderate Budget</h2>
                                     </div>
                                 </div>
                             </Link>
