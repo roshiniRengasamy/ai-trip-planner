@@ -13,7 +13,7 @@ const PlacesToVisit = ({ trip }) => {
                             <Link to={'https://www.google.com/maps/search/?api=1&query=' + activity?.place_name} target="_blank">
                                 <div key={i} className="my-2 border rounded-xl p-3 flex gap-5 hover:scale-105 transition-all hover:shadow-md cursor-pointer">
                                     {/* <img src="/placeholder.jpg" className="w-[130px] h-[130px] rounded-xl" /> */}
-                                    <img src={activity?.place_image_url} className="w-[130px] h-[130px] rounded-xl" />
+                                    <img src={`/places${Math.floor(Math.random() * 5) + 1}.jpg`} className="w-[130px] h-[130px] object-cover rounded-xl" />
                                     <div className="justify-center items-center">
                                         <h2 className="font-bold text-lg text-black">{activity?.place_name}</h2>
                                         <p className="text-sm text-gray-500">{activity?.place_details}</p>

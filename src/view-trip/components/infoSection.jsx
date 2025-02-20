@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { IoIosSend } from "react-icons/io";
 
-const InfoSection = ({ trip }) => {
+const InfoSection = ({ trip, imageIndex }) => {
     return (
         <div>
-            <img src={`/placeholder${Math.floor(Math.random() * 5) + 1}.jpg`} className="h-[300px] w-full  rounded-xl" />
+            <img src={`/placeholder${imageIndex}.jpg`} className="h-[300px] w-full object-cover  rounded-xl" />
             <div className="flex justify-between items-center">
                 <div className="my-5 flex flex-col gap-2">
                     <h2 className="font-bold text-2xl">{trip?.userSelection?.Location}</h2>
