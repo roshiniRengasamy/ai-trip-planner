@@ -40,7 +40,7 @@ const MyTrip = () => {
                         {userTrips?.map((trip, index) => (
                             <Link key={index} to={{ pathname: `/view-trip/1740027335230`, state: { index: index == 0 ? null : index } }} >
                                 <div className="hover:scale-105 transition-all my-5 ">
-                                    <img src={`/placeholder${index == 0 ? null : index}.jpg`} className="object-contain rounded-xl h-[150px]" />
+                                    <img src={`/placeholder${index == 0 ? '' : index}.jpg`} className="object-contain rounded-xl h-[150px]" />
                                     <div>
                                         <h2 className="font-bold text-lg">{trip?.userSelection?.Location}</h2>
                                         <h2 className="text-sm text-gray-500">{trip?.userSelection?.Days} Day trip with {trip?.userSelection?.Budget} Budget</h2>
