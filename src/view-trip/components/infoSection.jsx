@@ -1,7 +1,7 @@
 const InfoSection = ({ trip }) => {
     return (
         <div>
-            <img src={`/placeholder${Math.floor(Math.random() * 17)}.jpg`} className="h-[300px] w-full object-cover  rounded-xl" />
+            <img src={`/placeholder${Math.floor(Math.random() * 13)}.jpg`} className="h-[300px] w-full object-cover  rounded-xl" />
             <div className="flex justify-between items-center">
                 <div className="my-5 flex flex-col gap-2">
                     <h2 className="font-bold text-2xl">{trip?.userSelection?.Location}</h2>
