@@ -77,7 +77,7 @@ const CreateTrip = () => {
             return;
         }
         else {
-            if (formData.Days > 5) {
+            if (formData.Days > 7) {
                 toast('Maximum day iternary can be generated is 7')
                 return;
             }
@@ -166,7 +166,7 @@ const CreateTrip = () => {
                 </div>
                 <div>
                     <h2 className="text-lg my-3 font-medium" >How many days are you planning your trip?</h2>
-                    <Input placeholder="Ex: 3" type="number" onChange={(event) => handleSelect('Days', event.target.value)} />
+                    <input placeholder="Ex: 3" type="number" className="w-full p-2 rounded border border-gray-300" onChange={(event) => handleSelect('Days', event.target.value)} />
                 </div>
                 <div>
                     <h2 className="text-lg my-3 font-medium" >What is your budget?</h2>
